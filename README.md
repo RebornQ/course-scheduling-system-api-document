@@ -131,7 +131,46 @@ BaseUrl：[http://www.tinsfox.com:8081/course-scheduling-system](http://www.tins
     > | code | 微信API获取的Code |
     > | password | 密码 |
     > | userNumber | 帐号 |
-
+    
+- 返回的内容
+  - 成功
+    ```json
+    {
+      "code": 200,
+      "message": "绑定成功！",
+      "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTQ4OTg3NjQsInVzZXJOdW1iZXIiOiIyMDE5c3RyaW5nc3RyaW5nIn0.gtXOaYtRIcys8SVGU9lki5AlLdL_LzOo05LNIYHCz7Y"
+      }
+    }
+    ```
+    
+  - 失败
+    - 获取OpenId失败
+        ```json
+        {
+          "code": 500,
+          "message": "绑定失败！",
+          "data": null
+        }
+        ```
+        
+    - 帐号已被绑定
+        ```json
+        {
+          "code": 500,
+          "message": "该帐号已被绑定！",
+          "data": null
+        }
+        ```
+    
+    - 用户不存在
+        ```json
+        {
+          "code": 500,
+          "message": "用户不存在！",
+          "data": null
+        }
+        ```
         
 ## 课室的各种操作
 ### 查询某个机房的信息
