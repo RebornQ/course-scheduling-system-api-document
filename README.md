@@ -100,6 +100,7 @@ BaseUrl：[http://www.tinsfox.com:8081/course-scheduling-system](http://www.tins
       }
     }    
     ```
+    
   - 失败
   
     ```json
@@ -109,6 +110,28 @@ BaseUrl：[http://www.tinsfox.com:8081/course-scheduling-system](http://www.tins
       "data": null
     }
     ```
+        
+### 微信绑定帐号
+- 接口URL：`/user/bindWx`
+- Method：`POST`
+- 提交的参数（参数类型为`raw`，提交json数据）
+  
+    ```json
+    {
+      "code": "{微信API获取的Code}",
+      "password": "12345678",
+      "userNumber": "2019002001"
+    }
+    ```
+    
+    > 说明：
+    > 
+    > | 字段名 | 字段描述 |
+    > | --- | --- |
+    > | code | 微信API获取的Code |
+    > | password | 密码 |
+    > | userNumber | 帐号 |
+
         
 ## 课室的各种操作
 ### 查询某个机房的信息
