@@ -66,6 +66,49 @@ BaseUrl：[http://www.tinsfox.com:8081/course-scheduling-system](http://www.tins
     > 说明：
     > `token`为登录后该用户的Token，**登录后的需要验证用户的操作都需要在`Header`带上该Token**。
     > **例：`{ "key": "Authorization", "value":"获取到的token"}`**
+    
+### 微信登录
+- 接口URL：`/user/wx/login`
+- Method：`POST`
+- 提交的参数（参数类型为`form-data`/`x-www-form-urlencoded`，提交表单数据）
+
+    ```
+    "code": "{微信API获取的Code}"
+    ```
+    
+- 返回的内容
+  - 成功
+  
+    ```json
+    {
+      "code": 200,
+      "message": "登录成功！",
+      "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTQ4OTg3NjQsInVzZXJOdW1iZXIiOiIyMDE5c3RyaW5nc3RyaW5nIn0.gtXOaYtRIcys8SVGU9lki5AlLdL_LzOo05LNIYHCz7Y"
+      }
+    }    
+    ```
+    
+  - 未绑定
+  
+    ```json
+    {
+      "code": 500,
+      "message": "请绑定帐号，否则只能查看有限内容!",
+      "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NTQ4OTg3NjQsInVzZXJOdW1iZXIiOiIyMDE5c3RyaW5nc3RyaW5nIn0.gtXOaYtRIcys8SVGU9lki5AlLdL_LzOo05LNIYHCz7Y"
+      }
+    }    
+    ```
+  - 失败
+  
+    ```json
+    {
+      "code": 500,
+      "message": "登录失败！",
+      "data": null
+    }
+    ```
         
 ## 课室的各种操作
 ### 查询某个机房的信息
